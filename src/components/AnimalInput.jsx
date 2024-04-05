@@ -1,16 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-export const AnimalInput = ({
-  setAnimalsData,
-  name,
-  setName,
-  group,
-  setGroup,
-  weight,
-  setWeight,
-  isInZoo,
-  setIsInZoo,
-}) => {
+export const AnimalInput = ({ setAnimalsData }) => {
+  const [name, setName] = useState('');
+  const [group, setGroup] = useState('bird');
+  const [weight, setWeight] = useState('');
+  const [isInZoo, setIsInZoo] = useState('No');
+
   const generateUniqueId = () => {
     return Date.now().toString(36) + Math.random().toString(36).substr(2);
   };

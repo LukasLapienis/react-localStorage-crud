@@ -4,10 +4,10 @@ import { useState } from 'react';
 export const AnimalEditModal = ({
   animalsData,
   setAnimalsData,
-  animalId,
-  setIsOpen,
+  selectedAnimalId,
+  setIsModalOpen,
 }) => {
-  const animal = animalsData.find((el) => el.id === animalId);
+  const animal = animalsData.find((el) => el.id === selectedAnimalId);
 
   const [groupEdit, setGroupEdit] = useState(animal.group);
   const [isInZoo, setIsInZoo] = useState(animal.isInZoo);
@@ -16,12 +16,12 @@ export const AnimalEditModal = ({
 
   const handleEdit = (e) => {
     e.preventDefault();
-    setIsOpen(false);
+    setIsModalOpen(false);
     setAnimalsData((prevAnimals) => {
       return prevAnimals.map((prevAnimal) => {
-        if (prevAnimal.id === animalId) {
+        if (prevAnimal.id === selectedAnimalId) {
           return {
-            id: animalId,
+            id: selectedAnimalId,
             name: nameEdit,
             group: groupEdit,
             weight: weightEdit,
@@ -52,16 +52,12 @@ export const AnimalEditModal = ({
 
   const handleModalClose = (e) => {
     e.preventDefault();
-    setIsOpen(false);
+    setIsModalOpen(false);
   };
 
   return (
     <div className="modal-overlay" onClick={handleModalClose}>
-      <div
-        className="modal"
-        onClick={(e) => e.stopPropagation()}
-        style={{ backgroundColor: 'cyan', height: '200px', width: '200px' }}
-      >
+      <div className="modal" onClick={(e) => e.stopPropagation()}>
         <form>
           <label htmlFor="nameEdit">Animal Name:</label>
           <input
