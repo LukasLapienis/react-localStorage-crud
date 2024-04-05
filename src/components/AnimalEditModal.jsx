@@ -62,6 +62,7 @@ export const AnimalEditModal = ({
           <div>
             <label htmlFor="nameEdit">Animal Name:</label>
             <input
+              className="nameInput"
               type="text"
               value={nameEdit}
               name="nameEdit"
@@ -71,6 +72,7 @@ export const AnimalEditModal = ({
           <div>
             <label htmlFor="weightEdit">Animal Weight:</label>
             <input
+              className="weightInput"
               type="number"
               value={weightEdit}
               name="weightEdit"
@@ -91,7 +93,7 @@ export const AnimalEditModal = ({
             <select
               onChange={handleGroupEdit}
               value={groupEdit}
-              className="groupSelectEdit"
+              className="groupSelect"
             >
               <option value="bird"> Bird </option>
               <option value="mammal"> Mammal </option>
