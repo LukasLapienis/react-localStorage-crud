@@ -14,12 +14,20 @@ export const AnimalsContainer = () => {
   }, [animalsData]);
 
   return (
-    <div>
+    <div className="container">
+      <h2>Zoo Manager</h2>
       <AnimalInput setAnimalsData={setAnimalsData} />
-      <AnimalDisplay
-        animalsData={animalsData}
-        setAnimalsData={setAnimalsData}
-      />
+      {animalsData.length === 0 ? (
+        <div className="NoData">
+          {' '}
+          <h3>No Animals Found</h3>{' '}
+        </div>
+      ) : (
+        <AnimalDisplay
+          animalsData={animalsData}
+          setAnimalsData={setAnimalsData}
+        />
+      )}
     </div>
   );
 };

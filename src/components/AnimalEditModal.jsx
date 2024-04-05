@@ -58,34 +58,49 @@ export const AnimalEditModal = ({
   return (
     <div className="modal-overlay" onClick={handleModalClose}>
       <div className="modal" onClick={(e) => e.stopPropagation()}>
-        <form>
-          <label htmlFor="nameEdit">Animal Name:</label>
-          <input
-            type="text"
-            value={nameEdit}
-            name="nameEdit"
-            onChange={handleNameEdit}
-          />
-          <label htmlFor="weightEdit">Animal Weight:</label>
-          <input type="number" value={weightEdit} onChange={handleWeightEdit} />
-          <select
-            onChange={handleGroupEdit}
-            value={groupEdit}
-            className="groupSelectEdit"
-          >
-            <option value="bird"> Bird </option>
-            <option value="mammal"> Mammal </option>
-            <option value="reptile"> Reptile </option>
-            <option value="amphibian"> Amphibian </option>
-            <option value="fish"> Fish </option>
-          </select>
-          <label htmlFor="isInZooInput">Is In Zoo?</label>
-          <input
-            type="checkbox"
-            name="isInZooInput"
-            onChange={handleZooInputEdit}
-            checked={isInZoo === 'Yes' ? true : false}
-          />
+        <form className="modalForm">
+          <div>
+            <label htmlFor="nameEdit">Animal Name:</label>
+            <input
+              type="text"
+              value={nameEdit}
+              name="nameEdit"
+              onChange={handleNameEdit}
+            />
+          </div>
+          <div>
+            <label htmlFor="weightEdit">Animal Weight:</label>
+            <input
+              type="number"
+              value={weightEdit}
+              name="weightEdit"
+              onChange={handleWeightEdit}
+            />
+          </div>
+          <div>
+            <label htmlFor="isInZooInput">Is In Zoo?</label>
+            <input
+              className="checkbox"
+              type="checkbox"
+              name="isInZooInput"
+              onChange={handleZooInputEdit}
+              checked={isInZoo === 'Yes' ? true : false}
+            />
+          </div>
+          <div>
+            <select
+              onChange={handleGroupEdit}
+              value={groupEdit}
+              className="groupSelectEdit"
+            >
+              <option value="bird"> Bird </option>
+              <option value="mammal"> Mammal </option>
+              <option value="reptile"> Reptile </option>
+              <option value="amphibian"> Amphibian </option>
+              <option value="fish"> Fish </option>
+            </select>
+          </div>
+
           <button onClick={handleEdit}>Update</button>
           <button onClick={handleModalClose}>Close</button>
         </form>

@@ -47,9 +47,7 @@ export const AnimalInput = ({ setAnimalsData }) => {
 
   return (
     <div className="formContainer">
-      <h2>Zoo Manager</h2>
-
-      <div>
+      <div className="form">
         <input
           type="text"
           value={name}
@@ -64,6 +62,16 @@ export const AnimalInput = ({ setAnimalsData }) => {
           value={weight}
           onChange={handleWeightInput}
         />
+        <div className="isInZooInput">
+          <label htmlFor="isInZooInput">Is In Zoo?</label>
+          <input
+            className="checkbox"
+            type="checkbox"
+            name="isInZooInput"
+            onChange={handleZooInput}
+            checked={isInZoo === 'Yes' ? true : false}
+          />
+        </div>
         <select
           onChange={(e) => setGroup(e.target.value)}
           value={group}
@@ -75,15 +83,6 @@ export const AnimalInput = ({ setAnimalsData }) => {
           <option value="amphibian"> Amphibian </option>
           <option value="fish"> Fish </option>
         </select>
-        <div>
-          <label htmlFor="isInZooInput">Is In Zoo?</label>
-          <input
-            type="checkbox"
-            name="isInZooInput"
-            onChange={handleZooInput}
-            checked={isInZoo === 'Yes' ? true : false}
-          />
-        </div>
 
         <button onClick={handleAnimalInput}>Add Animal</button>
       </div>
